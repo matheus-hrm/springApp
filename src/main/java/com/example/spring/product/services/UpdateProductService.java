@@ -11,6 +11,7 @@ import com.example.spring.product.UpdateProductCommand;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
 import com.example.spring.product.model.ProductRepository;
+import com.example.spring.product.validators.ProductValidator;
 
 @Service
 public class UpdateProductService implements Command<UpdateProductCommand, ProductDTO>{
@@ -27,6 +28,7 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
     if (producOptional.isPresent()) {
       Product product = producOptional.get();
       product.setId(command.getId());
+      ProductValidator.execute(product);
       productRepository.save(product);
 
       return ResponseEntity.ok(new ProductDTO(product));

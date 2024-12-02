@@ -8,6 +8,8 @@ import com.example.spring.product.Command;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
 import com.example.spring.product.model.ProductRepository;
+import com.example.spring.product.validators.ProductValidator;
+
 
 @Service
 public class CreateProductService implements Command<Product, ProductDTO>{
@@ -21,8 +23,10 @@ public class CreateProductService implements Command<Product, ProductDTO>{
 
   @Override
   public ResponseEntity<ProductDTO> execute(Product product) {
+    ProductValidator.execute(product); 
     Product savedProduct = productRepository.save(product);
     return ResponseEntity.status(HttpStatus.CREATED).body(new ProductDTO(savedProduct));
   }
+
 
 }
