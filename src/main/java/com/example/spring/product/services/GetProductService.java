@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.spring.exceptions.ProductNotFoundException;
 import com.example.spring.product.Query;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
@@ -26,7 +27,6 @@ public class GetProductService implements Query<Integer, ProductDTO> {
             return ResponseEntity.ok(new ProductDTO(productOptional.get()));
         }
 
-        // throw exception
-        return null;
+        throw new ProductNotFoundException();
     }
 }
