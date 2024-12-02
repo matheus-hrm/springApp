@@ -1,0 +1,37 @@
+package com.example.spring.product.services;
+
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.spring.product.Command;
+import com.example.spring.product.UpdateProductCommand;
+import com.example.spring.product.model.Product;
+import com.example.spring.product.model.ProductDTO;
+import com.example.spring.product.model.ProductRepository;
+
+@Service
+public class UpdateProductService implements Command<UpdateProductCommand, ProductDTO>{
+
+  private ProductRepository productRepository;
+  
+  public UpdateProductService(ProductRepository productRepository) {
+    this.productRepository = productRepository;
+  }
+
+  @Override
+  public ResponseEntity<ProductDTO> execute(UpdateProductCommand command) {
+    Optional<Product> producOptional = productRepository.findById(command.getId());
+    if (producOptional.isPresent()) {
+      Product product = producOptional.get();
+      product.setId(command.getId());
+      productRepository.save(product);
+
+      return ResponseEntity.ok(new ProductDTO(product));
+    }
+
+    // throw exception
+    return null;
+  }
+}
