@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.spring.product.Command;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
-import com.example.spring.product.model.ProductRepository;
+import com.example.spring.product.ProductRepository;
 import com.example.spring.product.validators.ProductValidator;
 
 

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.spring.product.Query;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
-import com.example.spring.product.model.ProductRepository;
+import com.example.spring.product.ProductRepository;
 
 @Service
 public class GetProductsService implements Query<Void, List<ProductDTO>> {

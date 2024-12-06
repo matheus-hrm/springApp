@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.spring.exceptions.ProductNotFoundException;
 import com.example.spring.product.Command;
 import com.example.spring.product.model.Product;
-import com.example.spring.product.model.ProductRepository;
+import com.example.spring.product.ProductRepository;
 
 @Service
 public class DeleteProductService implements Command<Integer, Void> {
