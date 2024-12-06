@@ -14,7 +14,7 @@ import com.example.spring.product.ProductRepository;
 @Service
 public class DeleteProductService implements Command<Integer, Void> {
 
-  private ProductRepository productRepository;
+  private final ProductRepository productRepository;
 
   public DeleteProductService(ProductRepository productRepository) {
     this.productRepository = productRepository;
