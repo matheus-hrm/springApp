@@ -13,6 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
     List<Product> findByNameContaining(String name);
 
     @Query("SELECT p FROM Product p WHERE p.name LIKE %:keyword% OR p.description LIKE %:keyword%")
-    List<Product> findByNAmeOrDescriptionContaining(@Param("keyword")String name);
+    List<Product> findByNameOrDescriptionContaining(@Param("keyword")String name);
 
 }

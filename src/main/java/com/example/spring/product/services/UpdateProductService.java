@@ -24,9 +24,9 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
 
   @Override
   public ResponseEntity<ProductDTO> execute(UpdateProductCommand command) {
-    Optional<Product> producOptional = productRepository.findById(command.getId());
-    if (producOptional.isPresent()) {
-      Product product = producOptional.get();
+    Optional<Product> productOptional = productRepository.findById(command.getId());
+    if (productOptional.isPresent()) {
+      Product product = productOptional.get();
       product.setId(command.getId());
       ProductValidator.execute(product);
       productRepository.save(product);
