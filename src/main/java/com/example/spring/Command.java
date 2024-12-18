@@ -1,7 +1,7 @@
-package com.example.spring.product;
+package com.example.spring;
 
 import org.springframework.http.ResponseEntity;
 
-public interface Query<I, O>{
+public interface Command<I,O> {
     ResponseEntity<O> execute(I input);
 }
