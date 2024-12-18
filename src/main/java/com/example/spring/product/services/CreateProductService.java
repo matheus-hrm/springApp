@@ -2,11 +2,12 @@ package com.example.spring.product.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.spring.product.Command;
+import com.example.spring.Command;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
 import com.example.spring.product.ProductRepository;
@@ -25,6 +26,7 @@ public class CreateProductService implements Command<Product, ProductDTO>{
   }
 
   @Override
+  @Cacheable("productCache")
   public ResponseEntity<ProductDTO> execute(Product product) {
     logger.info("Executing" + getClass() + " with input: " + product);
     ProductValidator.execute(product); 

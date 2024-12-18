@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.spring.exceptions.ProductNotFoundException;
-import com.example.spring.product.Command;
+import com.example.spring.Command;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.ProductRepository;
 

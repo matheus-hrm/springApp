@@ -1,6 +1,6 @@
 package com.example.spring.product.services;
 
-import com.example.spring.product.Query;
+import com.example.spring.Query;
 import com.example.spring.product.model.ProductDTO;
 import com.example.spring.product.ProductRepository;
 import org.slf4j.Logger;

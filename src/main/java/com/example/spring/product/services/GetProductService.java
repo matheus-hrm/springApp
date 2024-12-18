@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.spring.exceptions.ProductNotFoundException;
-import com.example.spring.product.Query;
+import com.example.spring.Query;
 import com.example.spring.product.model.Product;
 import com.example.spring.product.model.ProductDTO;
 import com.example.spring.product.ProductRepository;
