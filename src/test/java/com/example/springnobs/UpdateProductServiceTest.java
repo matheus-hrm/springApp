@@ -50,15 +50,15 @@ public class UpdateProductServiceTest {
 
         UpdateProductCommand updateProductCommand = new UpdateProductCommand(1, newProduct);
         when(productRepository.findById(1)).thenReturn(Optional.of(product));
-        when(productRepository.save(product)).thenReturn(product);
+        when(productRepository.save(newProduct)).thenReturn(newProduct);
 
         ResponseEntity<ProductDTO> response = updateProductService.execute(updateProductCommand);
 
         assertNotNull(response);
         assertEquals(200, response.getStatusCode().value());
-        assertEquals(new ProductDTO(product), response.getBody());
+        assertEquals(response.getBody(), new ProductDTO(newProduct));
         verify(productRepository).findById(1);
-        verify(productRepository).save(product);
+        verify(productRepository).save(newProduct);
     }
 
     @Test
